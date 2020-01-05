@@ -24,9 +24,7 @@ int main(){
         cin >>i;
                 
         if(i==-1)
-		{
-		    abort;
-		}
+	   abort;
     }
 
 }
