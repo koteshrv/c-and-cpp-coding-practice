@@ -7,14 +7,14 @@ int main(){
     int t;
     cin >>t;
     while(t--){
-        int n,a,s,b,c,d,e,i;
+        long long int n,a,s,b,c,d,e,i;
         cin >>n;
         cin >>a;
-        s=5*pow(10,n);
-        cout << s <<endl;
+        s=(2*(long long int)(pow(10,n))+a);
+        cout <<s <<endl;
         fflush(stdout);
         cin >>b;
-        c=ceil(s/5);
+        c=((long long int)(pow(10,n))-b);
         cout <<c <<endl;
         fflush(stdout);
         cin >>d;
@@ -23,9 +23,10 @@ int main(){
         fflush(stdout);
         cin >>i;
                 
-        if(i==1)
-            continue;
-        else
-            abort;
-        }
+        if(i==-1)
+		{
+		    abort;
+		}
+    }
+
 }
