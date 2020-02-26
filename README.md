@@ -1,3 +1,3 @@
 # C and C++
 
-My Codechef and Project Euler solutions
+ Codechef binarysearch.io and Project Euler solutions
