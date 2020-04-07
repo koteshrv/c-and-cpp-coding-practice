@@ -24,7 +24,6 @@ using namespace std;
 
 
 bool Solution::solve(std::vector<int>& nums) {
-    // Write your code here
     if(nums.size()==1)
         return true;
     return false;
