@@ -28,7 +28,6 @@ using namespace std;
 
 
 bool Solution::solve(std::vector<int>& nums) {
-    // Write your code here
     long long int size = nums.size();
     if(( size >1 ) && nums[0]==nums[size-1])
         return true;
