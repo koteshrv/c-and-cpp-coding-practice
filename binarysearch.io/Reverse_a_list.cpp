@@ -17,7 +17,6 @@ using namespace std;
 
 
 std::vector<int> Solution::solve(std::vector<int>& nums) {
-    // Write your code here
     std::reverse(std::begin(nums), std::end(nums));
     return nums;
 };
