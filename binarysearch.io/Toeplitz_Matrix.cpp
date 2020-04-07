@@ -33,7 +33,6 @@ using namespace std;
 
 
 bool Solution::solve(std::vector<std::vector<int>>& matrix) {
-    // Write your code here
     int N= sizeof sizeof matrix[0] / sizeof(int);
     int M=sizeof matrix / sizeof matrix[0];
     
