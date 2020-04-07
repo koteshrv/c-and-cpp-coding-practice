@@ -42,7 +42,6 @@ using namespace std;
 
 
 bool Solution::solve(std::vector<int>& nums) {
-    // Write your code here
     for(int i=0;i<3;i++){
         if(nums[i]==1 || nums[i]==3 || nums[i]==7 )
             return true;
