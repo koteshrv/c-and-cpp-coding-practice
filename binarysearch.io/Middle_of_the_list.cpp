@@ -27,7 +27,6 @@ using namespace std;
 
 
 int Solution::solve(std::vector<int>& nums) {
-    // Write your code here
     long long int size = nums.size();
     if(size%2 == 0)
         return nums[(size-1)/2];
