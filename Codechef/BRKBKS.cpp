@@ -7,6 +7,7 @@ int main() {
 	while(t--){
 	    int s,w1,w2,w3;
 	    cin >>s >>w1 >>w2 >>w3;
+		
 		if(s>=w1+w2+w3)
 			cout <<"1" <<endl;
 
