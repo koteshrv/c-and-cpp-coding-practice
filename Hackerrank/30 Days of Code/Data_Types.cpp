@@ -8,7 +8,6 @@ int main() {
     int i = 4;
     double d = 4.0;
     string s = "HackerRank ";
-
     
     // Declare second integer, double, and String variables.
     int a;
