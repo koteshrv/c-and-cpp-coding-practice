@@ -12,5 +12,6 @@ int main() {
         j = k;
     }
     cout << sum << endl;
+    
     return 0;
 }
