@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 #include <vector>
 #include <algorithm>
 #include <set>
@@ -133,16 +134,57 @@ void mapDemo()
     }
     cout << count['a'] << " " << count['r'] << endl;
 
-    auto it = a.find('a');
-    a.erase('w');
+    auto it = count.find('a');  // O(logN)
+    count.erase('w');
+    cout << it->first << " " << it->second << endl;
 
+    // iterating a map using auto and printing a map
 
+    for (auto it2 = count.begin(); it2 != count.end(); it2++)
+    {
+        cout << it2->first << " " << it2->second << endl;
+    }
 
+}
+
+void solve()
+{
+    set<pair<int, int>> s;
+    
+    s.insert({401, 450});
+    s.insert({10, 20});
+    s.insert({2, 3});
+    s.insert({30, 400});
+
+    int point = 15;
+
+    auto it = s.upper_bound({point, INT_MAX});
+
+    if (it == s.begin())
+    {
+        cout << "not present" << endl;
+        return;
+    }
+
+    it--;
+    pair<int, int> current = *it;
+
+    if (current.first <= point && current.second >= point)
+    {
+        cout << "yes it is present in " << current.first << " " << current.second << endl;
+    }
+
+    else
+    {
+        cout << "not present" << endl;
+    }
+    
 }
 
 int main()
 {
     // vectorDemo();
     // setDemo();
-    mapDemo();
+    // mapDemo();
+    solve();
 }
