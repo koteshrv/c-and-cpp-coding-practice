@@ -5,17 +5,18 @@
 #include <algorithm>
 using namespace std;
 
+bool isPrime(int num){
+    if(num == 1) return false;
+    for(int i = 2;i<=sqrt(num);i++){
+          if(num % i == 0) return false;
+    }
+    return true;
+}
 
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
-    long long n,sum=0,num;
+    long long n;
     cin >> n;
-    num = n;
-    int l = floor(log10(n) + 1);
-    while(n > 0) {
-        sum += pow(n%10,l);
-        n/=10;
-    }
-    cout << (sum==num?"Yes":"No");
+    cout << (isPrime(n)?"Yes":"No");
     return 0;
 }
