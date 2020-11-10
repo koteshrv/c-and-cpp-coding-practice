@@ -4,41 +4,45 @@ using namespace std;
 
 vector<string> split_string(string);
 
-/*
- * Complete the simpleArraySum function below.
- */
-int simpleArraySum(vector<int> ar) {
-    /*
-     * Write your code here.
-     */
-    int sum=0;
-    for(int i = 0; i < ar.size(); i++)  sum+=ar[i];
-    return sum;
-
+// Complete the maximumToys function below.
+int maximumToys(vector<int> prices, int k) {
+    sort(prices.begin(),prices.end());
+    int sum = 0,count = 0;
+    for(int i = 0; i < prices.size(); i++) {
+        sum+=prices[i];
+        if(sum >= k) break;
+        count++;
+    }
+    return count;
 }
 
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    int ar_count;
-    cin >> ar_count;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    string nk_temp;
+    getline(cin, nk_temp);
 
-    string ar_temp_temp;
-    getline(cin, ar_temp_temp);
+    vector<string> nk = split_string(nk_temp);
 
-    vector<string> ar_temp = split_string(ar_temp_temp);
+    int n = stoi(nk[0]);
 
-    vector<int> ar(ar_count);
+    int k = stoi(nk[1]);
 
-    for (int ar_itr = 0; ar_itr < ar_count; ar_itr++) {
-        int ar_item = stoi(ar_temp[ar_itr]);
+    string prices_temp_temp;
+    getline(cin, prices_temp_temp);
 
-        ar[ar_itr] = ar_item;
+    vector<string> prices_temp = split_string(prices_temp_temp);
+
+    vector<int> prices(n);
+
+    for (int i = 0; i < n; i++) {
+        int prices_item = stoi(prices_temp[i]);
+
+        prices[i] = prices_item;
     }
 
-    int result = simpleArraySum(ar);
+    int result = maximumToys(prices, k);
 
     fout << result << "\n";
 
