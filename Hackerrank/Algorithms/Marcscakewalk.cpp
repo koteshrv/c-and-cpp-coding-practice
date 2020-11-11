@@ -4,54 +4,41 @@ using namespace std;
 
 vector<string> split_string(string);
 
-// Complete the getMinimumCost function below.
-int getMinimumCost(int k, vector<int> c) {
-    int n = c.size(),cost=0;
-    sort(c.begin(),c.end());
-    if(k<=n) cost = accumulate(c.begin(),c.end(),0);
-    else{
-        int count=0,purchases=0;
-        for(int i = n - 1; i >= 0; i--){
-            if(count == k){
-                count = 0;
-                purchases++;
-            }
-            cost += (purchases + 1) * c[i];
-            count++;
-        }
-    } 
-    return cost;
+// Complete the marcsCakewalk function below.
+long marcsCakewalk(vector<int> calorie) {
+    long dis=0,n=calorie.size(),j=0;
+    sort(calorie.begin(),calorie.end());
+    for(int i = n-1; i >=0;i--){
+        dis+= pow(2,j)*calorie[i];
+        j++;
+    }
+    return dis;
 }
 
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    string nk_temp;
-    getline(cin, nk_temp);
+    int n;
+    cin >> n;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    vector<string> nk = split_string(nk_temp);
+    string calorie_temp_temp;
+    getline(cin, calorie_temp_temp);
 
-    int n = stoi(nk[0]);
+    vector<string> calorie_temp = split_string(calorie_temp_temp);
 
-    int k = stoi(nk[1]);
-
-    string c_temp_temp;
-    getline(cin, c_temp_temp);
-
-    vector<string> c_temp = split_string(c_temp_temp);
-
-    vector<int> c(n);
+    vector<int> calorie(n);
 
     for (int i = 0; i < n; i++) {
-        int c_item = stoi(c_temp[i]);
+        int calorie_item = stoi(calorie_temp[i]);
 
-        c[i] = c_item;
+        calorie[i] = calorie_item;
     }
 
-    int minimumCost = getMinimumCost(k, c);
+    long result = marcsCakewalk(calorie);
 
-    fout << minimumCost << "\n";
+    fout << result << "\n";
 
     fout.close();
 
