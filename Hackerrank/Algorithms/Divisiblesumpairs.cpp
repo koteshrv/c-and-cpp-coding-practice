@@ -4,28 +4,15 @@ using namespace std;
 
 vector<string> split_string(string);
 
-// Complete the getMinimumCost function below.
-int getMinimumCost(int k, vector<int> c) {
-    int n = c.size(),cost=0;
-    sort(c.begin(),c.end());
-    if(k<=n) cost = accumulate(c.begin(),c.end(),0);
-    else {
-        int flowers= 0;
-        for(int i = n -1; i >= n-k; i++) {
-            cost+=c[i];
-        }
-        flowers+=k;
-
-        for(int i = 1; i < 100; i++) {
-            for(int j = 0; j < n-k;j++){
-                cost+=c[j]*(1+i);
-                flowers++;
-                if(flowers>= c.size()) break;
-            }
-            if(flowers>= c.size()) break;
+// Complete the divisibleSumPairs function below.
+int divisibleSumPairs(int n, int k, vector<int> ar) {
+    int count=0;
+    for(int i = 0; i < n; i++) {
+        for(int j = i + 1; j < n; j++) {
+            if((ar[i]+ar[j])%k==0)    count++;
         }
     }
-    return cost;
+    return count;
 }
 
 int main()
@@ -41,22 +28,22 @@ int main()
 
     int k = stoi(nk[1]);
 
-    string c_temp_temp;
-    getline(cin, c_temp_temp);
+    string ar_temp_temp;
+    getline(cin, ar_temp_temp);
 
-    vector<string> c_temp = split_string(c_temp_temp);
+    vector<string> ar_temp = split_string(ar_temp_temp);
 
-    vector<int> c(n);
+    vector<int> ar(n);
 
     for (int i = 0; i < n; i++) {
-        int c_item = stoi(c_temp[i]);
+        int ar_item = stoi(ar_temp[i]);
 
-        c[i] = c_item;
+        ar[i] = ar_item;
     }
 
-    int minimumCost = getMinimumCost(k, c);
+    int result = divisibleSumPairs(n, k, ar);
 
-    fout << minimumCost << "\n";
+    fout << result << "\n";
 
     fout.close();
 
