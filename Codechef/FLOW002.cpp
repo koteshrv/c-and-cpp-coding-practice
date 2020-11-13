@@ -1,5 +1,3 @@
-// bits/stdc++.h works in linux. 
-// It loads most of the libraries of C++ required.
 #include <bits/stdc++.h> 
 
 using namespace std;
@@ -14,7 +12,8 @@ int main() {
 		scanf("%d %d", &a, &b);
 
 		// Compute the ans.
-		int ans = a + b;
+		// Complete the below line.
+		int ans = a%b;
 		printf("%d\n", ans);
 	}
 
