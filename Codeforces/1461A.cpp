@@ -10,7 +10,9 @@ int main() {
     while(t--) {
         int n, k;
         cin >> n >> k;
+        
         for(int i = 0; i < k; i++) cout << "a";
+        
         n -= k;
         int x = 1;
         for(int i = 0; i < n; i++) {
