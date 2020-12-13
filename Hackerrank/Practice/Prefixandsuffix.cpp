@@ -10,8 +10,11 @@ int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
     string s;
     cin >> s;
-    int n=s.size();
-    if(n < 2) {cout << 0;exit(0);}
+    int n = s.size();
+    if(n < 2) {
+      cout << 0; 
+      return 0;
+    }
  
     int len=0,i=(n+1)/2;
     
