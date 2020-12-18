@@ -2,17 +2,18 @@
 
 using namespace std;
 
-// failed some testcases
 // Complete the appendAndDelete function below.
 string appendAndDelete(string s, string t, int k) {
-    int n=s.size(),m=t.size(),count=0;
-    if(m>n) return "No";
-    for(int i=0;i<n;i++){
-        if(s[i]==t[i])  count++;
+    int slen = s.size();
+    int tlen = t.size();
+    int count = 0;
+    for(int i = 0; i < slen; i++) {
+        if(s[i] == t[i])  count++;
         else break;
     }
-    if(k-n+(2*count)-m>=0)  return "Yes";
-    else return "No";
+    int op = k - (tlen - count) - (slen - count);
+    if(slen + tlen < k) return "Yes";
+    return (op % 2 == 0 && op >= 0 ? "Yes" : "No");
 }
 
 int main()
