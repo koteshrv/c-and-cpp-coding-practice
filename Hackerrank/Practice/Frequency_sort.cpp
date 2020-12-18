@@ -27,7 +27,7 @@ int main() {
             array[i][0] = vec[i];
             array[i][1] = f[i];
         }
-        sort(array, a)
+        sort(array, array + n);
     }
 
     return 0;
