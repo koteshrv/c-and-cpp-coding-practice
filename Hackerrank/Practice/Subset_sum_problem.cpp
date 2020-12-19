@@ -17,20 +17,26 @@ int main() {
     cin >> t;
 
     while(t--) {
-        int n;
-        cin >> n;
+        int n, sum;
+        cin >> n >> sum;
         vector<int> vec(n);
         for(int i = 0; i < n; i++) cin >> vec[i];
         sort(vec.begin(), vec.end());
         vector<int> subset;
         vector<vector<int>> res;
-        int index = 0;
+        int index = 0, flag = 0;
         vector<vector<int>> ans = subsets(vec, res, subset, index);  
         for(int i = 0; i < int(ans.size()); i++) {
-            for(int j = 0; j < int(ans[i].size()); j++)  cout << ans[i][j] << " ";
-            cout << endl;
+            int tot = 0;
+            for(int j = 0; j < int(ans[i].size()); j++)  tot += ans[i][j];
+            if(tot == sum)  {
+                cout << "YES" << endl;
+                flag = 1;
+                break;
+            }
+            if(flag)    break;
         }
-        cout << endl;
+        if(!flag)   cout << "NO" << endl;
     }
 
     return 0;
