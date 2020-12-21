@@ -13,7 +13,7 @@ int fair_number(long long num) {
     for(int i = 0; i < ar.size(); i++) {
         if(ar[i] != 0) {
             if(number % ar[i] != 0) {
-                flag = 1;  
+                flag = 1;
                 break;
             }
         }
