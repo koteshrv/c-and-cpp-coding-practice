@@ -3,8 +3,8 @@ using namespace std;
 #define ll long long
 
 int fair_number(long long num) {
-    vector<int> ar;
-    int number = num;
+    vector<long long> ar;
+    long long number = num;
     while(num > 0) {
         ar.push_back(num % 10);
         num /= 10;
@@ -23,7 +23,7 @@ int fair_number(long long num) {
 }
 int main() {
 
-    int t = 1;
+    int t;
     cin >> t;
     while(t--) {
         long long n;

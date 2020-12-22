@@ -13,8 +13,8 @@ int main() {
         int maxIndex;
         for(int i = n - 1; i > 0; i--) {
             maxIndex = i;
-            for(int j = 0; j < i; j++) 
-                if(ar[j] > ar[maxIndex])    maxIndex = j;
+            for(int j = i - 1; j >= 0; j--) 
+                if(ar[j] >= ar[maxIndex])    maxIndex = j;
             swap(ar[maxIndex], ar[i]);
             cout << maxIndex << " ";
         }
