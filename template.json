@@ -12,6 +12,27 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+
+	"Mini temp for cpp":{
+		"prefix":["shtem","shorttemp"],
+		"body":[
+			"#include <bits/stdc++.h>",
+			"using namespace std;",                                                                                                        
+			"",                                                                                    
+			"int main() {",                                                                                                                                                                                  
+			"",                                                                                                                             
+			"    int t;",                                                                                                               
+			"    cin >> t;",   
+			"",                                                                                                             
+			"    while(t--) {",                                                                                                             
+			"      ",                                                                                                                       
+			"    }",                                                                                                                        
+			"",                                                                                                                             
+			"    return 0;",
+			"}"
+		]
+	},
+
 	"My template for cpp":{
 		"prefix":["temp","template"],
 		"body":[
@@ -49,13 +70,14 @@
 			"int main() {",                                                                                                                 
 			"    ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);",                                                                   
 			"",                                                                                                                             
-			"    int t = 1;",                                                                                                               
+			"    int t;",                                                                                                               
 			"    cin >> t;",                                                                                                                
 			"    while(t--) {",                                                                                                             
 			"      ",                                                                                                                       
 			"    }",                                                                                                                        
 			"",                                                                                                                             
-			"    return 0;"
+			"    return 0;",
+			"}"
 		]
 	}
 }
