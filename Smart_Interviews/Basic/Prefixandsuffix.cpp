@@ -5,29 +5,26 @@
 #include <algorithm>
 using namespace std;
 
+int lps(string s) {
+    int n = s.size();
+    int len = 0, i = 0, j = 1;
+    while(i < n - 1 && j < n) {
+        if(s[i] == s[j]) {
+            len++;
+            i++;
+        }
+        else {
+            len = 0;
+            i = 0;
+        }
+         j++;
+    }
+    return len;
+}
 
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
     string s;
     cin >> s;
-    int n = s.size();
-    if(n < 2) {
-      cout << 0; 
-      return 0;
-    }
- 
-    int len=0,i=(n+1)/2;
-    
-    while(i<n){
-        if(s[i]==s[len]) {
-          ++len;
-          ++i;
-        }
-        else{
-          i = i - len + 1;
-          len = 0;
-        }
-    }
-    cout << len;
-    return 0;
+    cout << lps(s) << endl;
 }
