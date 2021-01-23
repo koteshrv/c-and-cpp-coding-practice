@@ -11,7 +11,7 @@ Example
 
 A = 5
 Return: [1 2 Fizz 4 Buzz]
-*/
+
 
 vector<string> Solution::fizzBuzz(int A) {
     vector<string> s;
@@ -23,3 +23,5 @@ vector<string> Solution::fizzBuzz(int A) {
     }
     return s;
 }
+
+*/

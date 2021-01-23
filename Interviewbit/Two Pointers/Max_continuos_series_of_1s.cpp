@@ -14,7 +14,7 @@ Output :
 [0, 1, 2, 3, 4] 
 
 If there are multiple possible solutions, return the sequence which has the minimum start index.
-*/
+
 
 vector<int> Solution::maxone(vector<int> &A, int B) {
     int i = 0;
@@ -41,3 +41,5 @@ vector<int> Solution::maxone(vector<int> &A, int B) {
     for(int i = index; i < index + final; i++) ans.push_back(i);
     return ans;
 }
+
+*/

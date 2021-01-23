@@ -54,7 +54,7 @@ Explanation 1:
 Explanation 2:
 
  Pair (20, -10) gives a difference of 30 i.e 20 - (-10) => 20 + 10 => 30
-*/
+
 
 int Solution::solve(vector<int> &A, int B) {
     int n = A.size();
@@ -67,3 +67,5 @@ int Solution::solve(vector<int> &A, int B) {
     }
     return 0;
 }
+
+*/

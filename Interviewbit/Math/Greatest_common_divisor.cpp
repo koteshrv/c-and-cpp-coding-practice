@@ -12,10 +12,11 @@ n : 9
 GCD(m, n) : 3 
  NOTE : DO NOT USE LIBRARY FUNCTIONS 
 
-*/
+
 
 int Solution::gcd(int A, int B) {
     if(B == 0) return A;
     return gcd(B, A % B);
 }
 
+*/

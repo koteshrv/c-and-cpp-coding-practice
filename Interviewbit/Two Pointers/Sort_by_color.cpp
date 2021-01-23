@@ -10,7 +10,7 @@ Example :
 
 Input : [0 1 2 0 1 2]
 Modify array so that it becomes : [0 0 1 1 2 2]
-*/
+
 
 void Solution::sortColors(vector<int> &A) {
     // Do not write main() function.
@@ -25,3 +25,5 @@ void Solution::sortColors(vector<int> &A) {
     for(int i = ar[0]; i < ar[0] + ar[1]; i++) A[i] = 1;
     for(int i = ar[1]; i < ar[0] + ar[1] + ar[2]; i++) A[i] = 2;
 }
+
+*/

@@ -13,7 +13,7 @@ x = -123,
 return -321
 
 Return 0 if the result overflows and does not fit in a 32 bit signed integer
-*/
+
 
 int Solution::reverse(int A) {
     long long rev = 0;
@@ -24,3 +24,5 @@ int Solution::reverse(int A) {
     if(rev > INT_MAX || rev < INT_MIN) return 0;
     return int(rev);
 }
+
+*/

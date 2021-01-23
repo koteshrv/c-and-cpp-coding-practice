@@ -30,7 +30,7 @@ Output 2:
 
 Explanation 2:
     The subarray [4,-1,2,1] has the maximum possible sum of 6.
-*/
+
 
 
 int Solution::maxSubArray(const vector<int> &A) {
@@ -42,3 +42,5 @@ int Solution::maxSubArray(const vector<int> &A) {
     }
     return maximum;
 }
+
+*/

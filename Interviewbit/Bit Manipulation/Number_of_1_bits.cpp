@@ -9,7 +9,7 @@ The 32-bit integer 11 has binary representation
 so the function should return 3.
 
 Note that since Java does not have unsigned int, use long for Java
-*/
+
 
 int Solution::numSetBits(unsigned int A) {
     // Do not write main() function.
@@ -24,3 +24,5 @@ int Solution::numSetBits(unsigned int A) {
     }
     return count;
 }
+
+*/

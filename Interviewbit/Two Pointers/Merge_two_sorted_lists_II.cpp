@@ -12,7 +12,7 @@ Input :
          B : [6 9]
 
 Modified A : [1 5 6 8 9]
-*/
+
 
 void Solution::merge(vector<int> &A, vector<int> &B) {
     // Do not write main() function.
@@ -32,3 +32,5 @@ void Solution::merge(vector<int> &A, vector<int> &B) {
     A.resize(vec.size());
     for(int i = 0; i < vec.size(); i++) A.push_back(vec[i]);
 }
+
+*/

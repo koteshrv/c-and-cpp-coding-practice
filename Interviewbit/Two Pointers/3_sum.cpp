@@ -9,7 +9,7 @@ given array S = {-1 2 1 -4},
 and target = 1.
 
 The sum that is closest to the target is 2. (-1 + 2 + 1 = 2)
-*/
+
 
 int Solution::threeSumClosest(vector<int> &A, int B) {
     sort(A.begin(), A.end());
@@ -32,3 +32,4 @@ int Solution::threeSumClosest(vector<int> &A, int B) {
     return sum;
 }
 
+*/

@@ -48,10 +48,12 @@ Output 1:
 Output 2:
 
  0
-*/
+
 
 int Solution::solve(int A, int B, int C, int D) {
     if(A != B && B != C && C != D)  return 0;
     if((A == B && C == D) || (B == C && A == D)) return 1;
     return 0;
 }
+
+*/

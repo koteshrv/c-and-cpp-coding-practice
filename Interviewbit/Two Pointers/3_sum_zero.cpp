@@ -8,7 +8,7 @@ Note:
 The solution set must not contain duplicate triplets. For example, given array S = {-1 0 1 2 -1 -4}, A solution set is:
 (-1, 0, 1)
 (-1, -1, 2)
-*/
+
 
 vector<vector<int> > Solution::threeSum(vector<int> &A) {
     vector<vector<int>> ans;
@@ -33,3 +33,5 @@ vector<vector<int> > Solution::threeSum(vector<int> &A) {
     ans.erase(unique(ans.begin(), ans.end()), ans.end());
     return ans;
 }
+
+*/

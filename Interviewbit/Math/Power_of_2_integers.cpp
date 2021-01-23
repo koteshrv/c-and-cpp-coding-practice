@@ -6,7 +6,7 @@ Example
 Input : 4
 Output : True  
 as 2^2 = 4. 
-*/
+
 
 int Solution::isPower(int A) {
     if(A == 1) return A;
@@ -17,3 +17,5 @@ int Solution::isPower(int A) {
     }
     return 0;
 }
+
+*/

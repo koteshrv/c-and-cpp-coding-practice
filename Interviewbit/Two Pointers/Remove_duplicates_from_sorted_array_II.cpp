@@ -11,7 +11,7 @@ For example,
 Given input array A = [1,1,1,2],
 
 Your function should return length = 3, and A is now [1,1,2].
-*/
+
 
 int Solution::removeDuplicates(vector<int> &A) {
     // Do not write main() function.
@@ -26,3 +26,5 @@ int Solution::removeDuplicates(vector<int> &A) {
     }
     return count;
 }
+
+*/

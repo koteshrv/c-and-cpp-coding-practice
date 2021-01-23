@@ -9,7 +9,7 @@ Do not allocate extra space for another array, you must do this in place with co
  Example:
 Given input array A = [1,1,2],
 Your function should return length = 2, and A is now [1,2]. 
-*/
+
 
 int Solution::removeDuplicates(vector<int> &A) {
     // Do not write main() function.
@@ -22,3 +22,5 @@ int Solution::removeDuplicates(vector<int> &A) {
     A.resize(distance(A.begin(), it))
     return A.size();
 }
+
+*/

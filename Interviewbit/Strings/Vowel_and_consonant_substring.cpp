@@ -51,7 +51,7 @@ Explanation 1:
 Explanation 2:
 
  No possible substring that start with vowel and end with consonant or vice-versa.
-*/
+
 
 int Solution::solve(string A) {
     int c1 = 0, c2 = 0, count = 0, n = A.size(), m = 1e9+7;
@@ -67,3 +67,5 @@ int Solution::solve(string A) {
     }
     return count % m;
 }
+
+*/

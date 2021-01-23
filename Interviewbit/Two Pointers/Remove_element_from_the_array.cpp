@@ -10,7 +10,7 @@ If array A is [4, 1, 1, 2, 1, 3]
 and value elem is 1,
 then new length is 3, and A is now [4, 2, 3] 
 Try to do it in less than linear additional space complexity.
-*/
+
 
 int Solution::removeElement(vector<int> &A, int B) {
     // Do not write main() function.
@@ -31,3 +31,5 @@ int Solution::removeElement(vector<int> &A, int B) {
     A.erase(A.begin() + i, A.end());
     return A.size();
 }
+
+*/

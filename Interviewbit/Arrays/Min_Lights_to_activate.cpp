@@ -57,7 +57,7 @@ Explanation 2:
 
 In the second configuration, there is no light which can light the first corridor.
 
-*/
+
 
 int Solution::solve(vector<int> &A, int B) {
     int n = A.size();
@@ -80,3 +80,5 @@ int Solution::solve(vector<int> &A, int B) {
     }
     return count;
 }
+
+*/

@@ -11,7 +11,7 @@ Output : True
 
 Input : 123
 Output : False
-*/
+
 
 int Solution::isPalindrome(int A) {
     int temp = A, rev = 0;
@@ -22,3 +22,5 @@ int Solution::isPalindrome(int A) {
     if(rev == A) return 1;
     return 0;
 }
+
+*/
