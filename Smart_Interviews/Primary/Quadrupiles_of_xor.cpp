@@ -7,7 +7,7 @@ int count_quadrapiles(int a[], int b[], int c[], int d[], int n) {
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
             v1.push_back(a[i] ^ b[j]);
-            v2.push_back(0 ^ c[i] ^ d[j]);
+            v2.push_back(c[i] ^ d[j]);
         }
     }
     sort(v1.begin(), v1.end());
