@@ -5,7 +5,7 @@ void sum_of_max_window(int ar[], int n, int k) {
     deque<long long> d;
     long long sum = 0;
     for(int i = 0; i < n; i++) {
-        while(!d.empty() && ar[i] > ar[d.back()]) {
+        while(!d.empty() && ar[i] >= ar[d.back()]) {
             d.pop_back();
         }
         d.push_back(i);
