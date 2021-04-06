@@ -2,7 +2,7 @@
 using namespace std;
 
 const int n = 10000;
-int ar[n], front = -1, rear = -1;
+int ar[n], front = -1, rear = 0;
 
 void pop_front() {
     if(front == -1) cout << "Empty" << endl;
@@ -19,7 +19,7 @@ void pop_back() {
     else {
         cout << ar[rear] << endl;
         if(front == rear) front = rear = -1;
-        else if(rear == n - 1) rear = 0;
+        else if(rear == 0) rear = n - 1;
         else rear--;
     } 
 }
