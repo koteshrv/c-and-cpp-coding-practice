@@ -6,7 +6,7 @@ int main() {
     scanf("%d\n", &t);
     for(int i = 1; i <= t; i++) {
         printf("Case %d:\n", i);
-        int n, x, _max = INT_MIN;
+        int n, x, _max;
         char q;
         stack<int> st, m;
         scanf("%d\n", &n);
@@ -15,18 +15,20 @@ int main() {
             if(q == 'A') {
                 scanf("%d\n", &x);
                 st.push(x);
-                _max = max(_max, x);
-                m.push(_max);
+                if(!m.empty()) {
+                    _max = max(m.top(), x);
+                    m.push(_max);
+                } 
+                else m.push(x);
             }
             else if(q == 'R' && !st.empty()) {
-                if(st.top() == m.top()) m.pop();
                 st.pop();
+                m.pop();
             }
             else if(q == 'Q') {
                 if(!st.empty()) printf("%d\n", m.top());
                 else {
                     printf("Empty\n");
-                    _max = INT_MIN;
                 }
             }
         }
