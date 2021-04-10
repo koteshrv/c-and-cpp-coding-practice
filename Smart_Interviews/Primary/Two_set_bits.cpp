@@ -5,7 +5,8 @@ void findN(long long n) {
     long long l = 1, last_number = 0;
     while(l * (l + 1) / 2 < n) last_number += l++;
     long long r = n - last_number - 1;
-    cout << ((1 << l) + (1 << r)) % 1000000007 << endl;
+    long long ans =  ((1 << l) + (1 << r)) % 1000000007;
+    cout << ans << endl;
 }
 
 int main() {
