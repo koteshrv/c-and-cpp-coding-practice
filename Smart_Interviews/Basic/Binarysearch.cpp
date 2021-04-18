@@ -8,7 +8,6 @@ using namespace std;
 int binarysearch(int ar[], int start, int end, int key) {
     while(start<=end){ 
         int mid = start+(end-start)/2; 
-
         if(ar[mid]==key) return mid;
         if(ar[mid]<key) start=mid+1;
         else end=mid-1; 
