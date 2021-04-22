@@ -1,6 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+unordered_map<int, int> um;
+
+void operation(int k) {
+    if(um.find(k - 1) == um.end() && um.find(k + 1) == um.end()) {
+        um[k + 1]++;
+        um[k]--;
+    }
+    else if(um.find(k - 1) == um.end()) {
+        um[k - 1]++;
+        um[k]--;
+    }
+    else if(um.find(k + 1) == um.end()) {
+        um[k + 1]++;
+        um[k]--;
+    }
+    else if(um[k] > um[k + 1] && um[k] > um[k - 1] && um[k] - um[k + 1] > 1) {
+        um[k + 1]++;
+        operation(k + 1);
+        um[k]--;
+    }
+    else if(um[k] > um[k + 1] && um[k] > um[k - 1] && um[k] - um[k - 1] > 1) {
+        um[k - 1]++;
+        operation(k - 1);
+        um[k]--;
+    }   
+}
+
+int getMax(unordered_map<int, int> um) {
+    int m = INT_MIN;
+    for(auto i: um) m = max(m, i.second);
+    return m;
+}
+
 int main() {
 
     int t;
@@ -9,54 +42,22 @@ int main() {
     while(t--) {
         int n;
         cin >> n;
-        vector<int> vec(n);
-        for(int i = 0; i < n; i++) cin >> vec[i];
-        int m = *max_element(vec.begin(), vec.end());
-        vector<char> s(m + 1, '.');
-        int rows = 1, flag = 0;
-        vector<string> v;
-
-        for(int i = 0; i < n; i++) {
-            if(s[vec[i]] == '.') s[vec[i]] = 'O';
-
-            else if(s[vec[i]] == 'O' && s[vec[i] + 1] == '.' && 
-                    s[vec[i] - 1] == '.' && vec[i] - 1 >= 0 && vec[i] + 1 < n)
-
-                    s[vec[i] + 1] = 'O';
-
-            else if(s[vec[i]] == 'O' && s[vec[i] + 1] == 'O' 
-                    && s[vec[i] - 1] == '.' && vec[i] - 1 >= 0 && vec[i] + 1 < n)
-
-                    s[vec[i] - 1] = 'O';
-
-            else if(s[vec[i]] == 'O' && s[vec[i] + 1] == '.' 
-                    && s[vec[i] - 1] == 'O' && vec[i] - 1 >= 0 && vec[i] + 1 < n)
-
-                    s[vec[i] + 1] = 'O';
-
-            else if(s[vec[i]] == 'O' && s[vec[i] + 1] == 'O' && vec[i] == 0) {
-                    auto it = s.insert(s.begin(), 'O');
-            }
-
-            else if(v[rows][vec[i]] == 'O' && v[rows][vec[i] - 1] == 'O' && vec[i] == v[rows].size()) {
-                    s.push_back('O');
-            }
-            else if(v[rows][vec[i]] == 'O' && v[rows][vec[i] + 1] == 'O' 
-                    && v[rows][vec[i] - 1] == 'O' && vec[i] - 1 >= 0 && vec[i] + 1 < n) {
-                    string str(s.begin(), s.end());
-                    v.push_back(str);
-                    s.clear();
-                    vector<char> s(m + 1, '.');
-                    s[vec[i]] = 'O';
-            }    
+        int k;
+        while(n--) {
+            cin >> k;
+            um[k]++;
+            if(um[k] > 1) operation(k);
         }
-        
-        for(int i = v.size() - 1; i >= 0; i--) {
-            for(int j = 0; j < v[rows].size(); j++) {
-                cout << v[i][j];
-            }
-            cout << endl;
-        }
+        /*int len = um.size(), m = getMax(um);
+        vector<int> v;
+        for(int x: um) v.push_back(um.second);
+        int ar[len][m], ;
+        for(int i = m - 1; i >= 0; i++) {
+            
+        }*/
+        for(auto i : um) cout << i.first << " " << i.second << endl;
+        um.clear();
+        cout << endl;
     }
 
     return 0;
