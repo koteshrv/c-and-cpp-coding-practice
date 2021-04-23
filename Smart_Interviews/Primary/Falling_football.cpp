@@ -18,13 +18,13 @@ void operation(int k) {
     }
     else if(um[k] > um[k + 1] && um[k] > um[k - 1] && um[k] - um[k + 1] > 1 && um[k + 1] <= um[k - 1]) {
         um[k + 1]++;
-        operation(k + 1);
         um[k]--;
+        operation(k + 1);
     }
     else if(um[k] > um[k + 1] && um[k] > um[k - 1] && um[k] - um[k - 1] > 1 && um[k + 1] > um[k - 1]) {
         um[k - 1]++;
-        operation(k - 1);
         um[k]--;
+        operation(k - 1);
     }   
 }
 
@@ -33,7 +33,6 @@ vector<int> getMax(map<int, int> um) {
     map<int, int>::iterator it;
     vector<int> m;
     for(it = um.begin(); it != um.end(); it++) {
-        // cout << it->first << " " << it->second << endl;
         m1 = max(m1, it->second);
         m2 = max(m2, it->first);
         m3 = min(m3, it->first);
@@ -42,7 +41,6 @@ vector<int> getMax(map<int, int> um) {
     m.push_back(m2 - m3 + 1);
     m.push_back(m1);
     m.push_back(m3);
-    // cout << "Len Max Min " <<  m[0] << " " << m[1] << " " << m[2] << endl;
     return m;
 }
 
@@ -61,35 +59,22 @@ int main() {
             um[k]++;
             if(um[k] > 1) operation(k);
         }
-        vector<int> ma = getMax(um);
-        int len = ma[0], m = ma[1], _min = ma[2], index = 0;
+        vector<int> vec = getMax(um);
+        int len = vec[0], m = vec[1], _min = vec[2], index = 0;
         vector<vector<int>> v;
         map<int, int>::iterator it;
         for(it = um.begin(); it != um.end(); it++) v.push_back({it->first - _min, it->second});
-        for(int i = 0; i < v.size(); i++) cout << v[i][0] << " " << v[i][1] << endl;
-        cout << "len m "<< len << " " << m << endl;
-        char ar[len][m];
+        char ar[m][len];
         for(int j = 0; j < len; j++) {
             int ind = m - 1;
             int empty = m - v[index][1];
             if(j == v[index][0]) {
-                cout << "Ball Present in " << j << endl;
-                while(v[index][1]--) {
-                    cout << "placed ball in " << j << " " << ind << endl;
-                    ar[ind--][j] = 'O';
-                }
-                while(empty--) {
-                    cout << "placed dot in " << j << " " << ind << endl;
-                    ar[ind--][j] = '.';             
-                }
+                while(v[index][1]--) ar[ind--][j] = 'O';
+                while(empty--)  ar[ind--][j] = '.'; 
                 index++;
             }
             else {
-                cout << "Ball not Present in " << j << endl;
-                while(ind >= 0) {
-                    cout << "placed dot in " << j << " " << ind  << endl;
-                    ar[ind--][j] = '.';
-                }
+                while(ind >= 0) ar[ind--][j] = '.';
             } 
         }
         for(int i = 0; i < m; i++) {
@@ -97,9 +82,7 @@ int main() {
             cout << endl;
         }
         
-        //for(auto i : um) cout << i.first << " " << i.second << endl;
         um.clear();
-        cout << endl;
     }
 
     return 0;
