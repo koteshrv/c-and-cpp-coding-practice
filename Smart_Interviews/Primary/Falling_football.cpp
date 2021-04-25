@@ -16,12 +16,12 @@ void operation(int k) {
         um[k + 1]++;
         um[k]--;
     }
-    else if(um[k] > um[k + 1] && um[k] > um[k - 1] && um[k] - um[k + 1] > 1 && um[k + 1] <= um[k - 1]) {
+    else if(um[k] >= um[k + 1] && um[k] >= um[k - 1] && um[k] - um[k + 1] > 1 && um[k + 1] <= um[k - 1]) {
         um[k + 1]++;
         um[k]--;
         operation(k + 1);
     }
-    else if(um[k] > um[k + 1] && um[k] > um[k - 1] && um[k] - um[k - 1] > 1 && um[k + 1] > um[k - 1]) {
+    else if(um[k] >= um[k + 1] && um[k] >= um[k - 1] && um[k] - um[k - 1] > 1 && um[k + 1] > um[k - 1]) {
         um[k - 1]++;
         um[k]--;
         operation(k - 1);
