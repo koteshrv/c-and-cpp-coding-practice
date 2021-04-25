@@ -17,7 +17,7 @@ The merged list should be :
  *     ListNode *next;
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
- */
+ 
 ListNode* Solution::mergeTwoLists(ListNode* A, ListNode* B) {
     if(A == NULL) return B;
     if(B == NULL) return A;
@@ -30,6 +30,4 @@ ListNode* Solution::mergeTwoLists(ListNode* A, ListNode* B) {
         return B;
     }
 }
-
-
 */
