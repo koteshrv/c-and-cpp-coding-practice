@@ -63,8 +63,12 @@ int main() {
         int len = vec[0], m = vec[1], _min = vec[2], index = 0;
         vector<vector<int>> v;
         map<int, int>::iterator it;
-        for(it = um.begin(); it != um.end(); it++) v.push_back({it->first - _min, it->second});
+        for(it = um.begin(); it != um.end(); it++) {
+            v.push_back({it->first - _min, it->second});
+            // cout << "first second " << it->first - _min << " " << it->second << endl;
+        }
         char ar[m][len];
+        int f = 0, pos = 0;
         for(int j = 0; j < len; j++) {
             int ind = m - 1;
             int empty = m - v[index][1];
@@ -72,13 +76,15 @@ int main() {
                 while(v[index][1]--) ar[ind--][j] = 'O';
                 while(empty--)  ar[ind--][j] = '.'; 
                 index++;
+                f = 1;
             }
-            else {
+            else if(f){
                 while(ind >= 0) ar[ind--][j] = '.';
             } 
+            else pos++;
         }
         for(int i = 0; i < m; i++) {
-            for(int j = 0; j < len; j++) cout << ar[i][j];
+            for(int j = pos; j < len; j++) cout << ar[i][j];
             cout << endl;
         }
         
