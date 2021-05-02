@@ -19,6 +19,10 @@ using namespace std;
 #define pi(x)	printf("%d\n", x)
 #define pl(x)	printf("%lld\n", x)
 #define ps(s)	printf("%s\n", s)
+#define pis(x)  printf("%d ",x)
+#define pls(x)  printf("%lld ",x)
+#define pss(s)  printf("%s ",s)
+#define newline ps("");
 #define pb push_back
 #define mp make_pair
 #define F first
@@ -26,7 +30,9 @@ using namespace std;
 #define all(x) x.begin(), x.end()
 #define clr(x) memset(x, 0, sizeof(x))
 #define sortall(x) sort(all(x))
-#define tr(it, a) for(auto it = a.begin(); it != a.end(); it++)
+#define iter(it, a) for(auto it = a.begin(); it != a.end(); it++)
+#define debug(x) cout << #x << "=" << x << endl
+#define debug2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
 #define PI 3.1415926535897932384626
 typedef pair<int, int>	pii;
 typedef pair<ll, ll>	pl;
@@ -37,6 +43,18 @@ typedef vector<pl>		vpl;
 typedef vector<vi>		vvi;
 typedef vector<vl>		vvl;
 
+const int mod = 1'000'000'007;
+
+void in_vec(vi &v, int n);
+void out_vec(vi v, int n);
+void in_mat(vector<vi> &v, int m, int n);
+void out_mat(vector<vi> &v, int m, int n);
+
+// ----------------------------------------------------- 
+
+void solve() {
+
+}
 
 int main() {
     
@@ -48,7 +66,7 @@ int main() {
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 
     int t = 1;
-    cin >> t;
+    si(t);
 
     while(t--) {
         solve();
@@ -57,27 +75,25 @@ int main() {
     return 0;
 }
 
-void solve() {
-
-}
-
 void in_vec(vi &v, int n) {
     fo(i, n) si(v[i]);
 }
 
 void out_vec(vi v, int n) {
-    fo(i, n) pi(v[i]);
+    fo(i, n) pis(v[i]);
+    newline;
 }
 
-void in_mat(vector<vi> &v, int m, int n) {
+void in_mat(vvi &v, int m, int n) {
     fo(i, m) {
         fo(j, n) si(v[i][j]);
     }
 }
 
-void out_mat(vector<vi> &v, int m, int n) {
+void out_mat(vvi &v, int m, int n) {
     fo(i, m) {
-        fo(j, n) pi(v[i][j]);
+        fo(j, n) pis(v[i][j]);
+        newline;
     }
 }
 
