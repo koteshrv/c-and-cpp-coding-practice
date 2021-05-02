@@ -1,13 +1,14 @@
 #!/bin/bash
+DIR=$(pwd)
+echo -n "Enter destination: "
+read dir
+cd $dir
 echo -n "Enter Question name: "
 read question
-echo -n "Enter destination: "
-read destination
-cd $destionation
-mkdir question
+mkdir $question
 
 touch $question/"$question.cpp"
 touch $question/input.txt
 touch $question/output.txt
 
-echo "${template}" > $question/"$question.cpp"
+cd $DIR
