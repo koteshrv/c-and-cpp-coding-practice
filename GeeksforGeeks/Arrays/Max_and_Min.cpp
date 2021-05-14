@@ -1,6 +1,6 @@
 /*
 ** koteshrv
-** date: 03/05/2021 22:21:00
+** date: 03/05/2021 23:09:21
 */
 
 #include <bits/stdc++.h>
@@ -51,25 +51,78 @@ void out_mat(vector<vi> &v, int m, int n);
 
 // ----------------------------------------------------- 
 
-// Time complexity O(n)
-void reverseArray(vi &vec, int n) {
-    int start = 0, end = n - 1;
-    while(start < end) {
-        int temp = vec[start];
-        vec[start] = vec[end];
-        vec[end] = temp;
-        start++;
-        end--;
+struct Pair {
+    int min, max;
+};
+
+// Simple linear search
+struct Pair getMinMaxLinearSearch(vi vec, int n) {
+    struct Pair minmax;
+    minmax.min = INT_MAX;
+    minmax.max = INT_MIN;
+    fo(i, n) {
+        if(vec[i] > minmax.max) minmax.max = vec[i];
+        if(vec[i] < minmax.min) minmax.min = vec[i];
     }
+    return minmax;
 }
 
-// Time complexity O(n)
-void reverseArrayRecursive(vi &vec, int n, int start, int end) {
-    if(start >= end) return;
-    int temp = vec[start];
-    vec[start] = vec[end];
-    vec[end] = temp;  
-    reverseArrayRecursive(vec, n, start + 1, end - 1);
+// Tournament method
+// Paradigm: Divide and Conquer
+struct Pair getMinMaxTournamentMethod(vi vec, int low, int high) {
+    struct Pair minmax, minmaxleft, minmaxright;
+    int mid;
+
+    // If there is only one element
+    if(low == high) {
+        minmax.min = minmax.max = vec[low];
+        return minmax;
+    }
+
+    // If there are two elements left
+    if(high == low + 1) {
+        vec[low] > vec[high] ? minmax.max = vec[low], minmax.min = vec[high] : minmax.max = vec[high], minmax.min = vec[low];
+        return minmax;
+    }
+
+    // If there are more than two elements
+    mid = low + (high - low) / 2;
+    minmaxleft = getMinMaxTournamentMethod(vec, low, mid);
+    minmaxright = getMinMaxTournamentMethod(vec, mid + 1, high);
+
+    minmaxleft.min > minmaxright.min ? minmax.min = minmaxright.min : minmax.min = minmaxleft.min;
+    minmaxleft.max > minmaxright.max ? minmax.max = minmaxleft.max : minmax.max = minmaxright.max;
+
+    return minmax;
+}
+
+// Compare in pairs O(n)
+struct Pair getMinMaxCompareInPairs(vi vec, int n) {
+    struct Pair minmax;
+    int i;
+
+    if(n % 2) {
+        minmax.min = minmax.max = vec[0];
+        i = 1;
+    }
+
+    else {
+        vec[0] > vec[1] ? minmax.max = vec[0], minmax.min = vec[1] : minmax.max = vec[1], minmax.min = vec[0];
+        i = 2;
+    }
+
+    while(i < n - 1) {
+        if(vec[i] > vec[i + 1]) {
+            if(vec[i] > minmax.max) minmax.max = vec[i];
+            if(vec[i + 1] < minmax.min) minmax.min = vec[i + 1];
+        }
+        else {
+            if(vec[i + 1] > minmax.max) minmax.max = vec[i + 1];
+            if(vec[i] < minmax.min) minmax.min = vec[i];
+        }
+        i += 2;
+    }
+    return minmax;
 }
 
 void solve() {
@@ -77,10 +130,8 @@ void solve() {
     si(n);
     vi vec(n);
     in_vec(vec, n);
-    // reverseArray(vec, n); 
-    // reverseArrayRecursive(vec, n, 0, n - 1);
-    reverse(vec.begin(), vec.end()); // O(n)
-    out_vec(vec, n);
+    struct Pair minmax = getMinMaxCompareInPairs(vec, n);
+    debug2(minmax.min, minmax.max);
 }
 
 int main() {

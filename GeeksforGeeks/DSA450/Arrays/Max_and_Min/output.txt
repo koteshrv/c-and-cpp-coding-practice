@@ -1,1 +1,0 @@
-minmax.min=3,minmax.max=98
